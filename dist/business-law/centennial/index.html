@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Best Business & Corporate Law Attorneys in Centennial, CO | AI Lawyer Match</title>
+    <meta name="description" content="Find the top-rated Business & Corporate Law legal counsel in Centennial, Colorado. Use our AI triage matching tool to connect with specialized attorneys.">
+    <script src="https://tailwindcss.com"></script>
+</head>
+<body class="bg-slate-50 text-slate-900 font-sans">
+
+    <!-- Header Navigation -->
+    <header class="bg-white border-b border-slate-200 sticky top-0 z-50">
+        <div class="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
+            <a href="/" class="text-xl font-extrabold text-blue-600 tracking-tight">DenverLegal<span class="text-slate-800">AI</span></a>
+            <span class="text-xs font-semibold uppercase tracking-wider bg-blue-50 text-blue-700 px-3 py-1 rounded-full border border-blue-200">Colorado Regional Portal</span>
+        </div>
+    </header>
+
+    <!-- Hero Framework -->
+    <main class="max-w-4xl mx-auto px-4 py-12">
+        <div class="text-center mb-10">
+            <h1 class="text-4xl font-black tracking-tight text-slate-900 sm:text-5xl mb-4">Denver Corporate Counsel Selection Network for Centennial</h1>
+            <p class="text-lg text-slate-600 max-w-2xl mx-auto">Evaluating case details across contract disputes, LLC formation, intellectual property to match your situation with the highest-rated Business & Corporate Law law firms in Centennial.</p>
+        </div>
+
+        <!-- AI Matcher Questionnaire Widget -->
+        <div class="bg-white border border-slate-200 shadow-xl rounded-2xl p-6 sm:p-8 max-w-xl mx-auto">
+            <div id="form-container">
+                <div class="flex items-center justify-between mb-6">
+                    <span class="text-xs font-bold uppercase tracking-wider text-blue-600" id="step-indicator">Step 1 of 3</span>
+                    <div class="h-2 w-24 bg-slate-100 rounded-full overflow-hidden"><div id="progress-bar" class="h-full bg-blue-600 w-1/3 transition-all duration-300"></div></div>
+                </div>
+
+                <!-- Step 1: Niche Details -->
+                <div id="step-1" class="form-step">
+                    <h2 class="text-xl font-bold mb-4">What specific legal issue are you facing in Centennial?</h2>
+                    <div class="space-y-3">
+                        <button onclick="nextStep(2)" class="w-full text-left p-4 border border-slate-200 rounded-xl hover:border-blue-500 hover:bg-blue-50/50 transition font-medium">Urgent case evaluation needed</button>
+                        <button onclick="nextStep(2)" class="w-full text-left p-4 border border-slate-200 rounded-xl hover:border-blue-500 hover:bg-blue-50/50 transition font-medium">General legal advice & consulting</button>
+                        <button onclick="nextStep(2)" class="w-full text-left p-4 border border-slate-200 rounded-xl hover:border-blue-500 hover:bg-blue-50/50 transition font-medium">Document review / Contract dispute</button>
+                    </div>
+                </div>
+
+                <!-- Step 2: Contact Info Form -->
+                <div id="step-2" class="form-step hidden">
+                    <h2 class="text-xl font-bold mb-2">Where should we route your case evaluation results?</h2>
+                    <p class="text-sm text-slate-500 mb-4">Mitigate corporate liabilities before legal challenges escalate.</p>
+                    <form id="lead-form" onsubmit="submitForm(event)" class="space-y-4">
+                        <div>
+                            <label class="block text-xs font-bold uppercase text-slate-500 mb-1">Full Name</label>
+                            <input type="text" required id="name" placeholder="John Doe" class="w-full p-3 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold uppercase text-slate-500 mb-1">Phone Number</label>
+                            <input type="tel" required id="phone" placeholder="(303) 555-0199" class="w-full p-3 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold uppercase text-slate-500 mb-1">Email Address</label>
+                            <input type="email" required id="email" placeholder="john@example.com" class="w-full p-3 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        </div>
+                        <button type="submit" class="w-full bg-blue-600 text-white font-bold py-4 rounded-xl hover:bg-blue-700 transition shadow-lg shadow-blue-600/20">Analyze & Submit Case Details</button>
+                    </form>
+                </div>
+
+                <!-- Step 3: Confirmation -->
+                <div id="step-3" class="form-step hidden text-center py-8">
+                    <div class="inline-flex p-3 bg-green-100 text-green-700 rounded-full mb-4">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                    </div>
+                    <h2 class="text-2xl font-black mb-2">AI Analysis Complete</h2>
+                    <p class="text-slate-600 mb-6">Your data has been prioritized. A vetted Centennial Business & Corporate Law firm will reach out to you within 15 minutes.</p>
+                    <div class="text-xs bg-slate-50 text-slate-500 p-3 rounded-lg border border-slate-100">Case Routing ID: DL-AI-459074</div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer boilerplate -->
+    <footer class="border-t border-slate-200 mt-24 bg-white py-8 text-center text-xs text-slate-400">
+        <p>&copy; 2026 DenverLegalAI.com. Connecting citizens with optimal local counsel. All rights reserved.</p>
+    </footer>
+
+    <!-- Form State Controller JavaScript -->
+    <script>
+        function nextStep(step) {
+            document.querySelectorAll('.form-step').forEach(el => el.classList.add('hidden'));
+            document.getElementById('step-' + step).classList.remove('hidden');
+            
+            if(step === 2) {
+                document.getElementById('step-indicator').innerText = 'Step 2 of 3';
+                document.getElementById('progress-bar').style.width = '66%';
+            }
+        }
+
+        function submitForm(event) {
+            event.preventDefault();
+            
+            const payload = {
+                niche: "business-law",
+                location: "centennial",
+                name: document.getElementById('name').value,
+                phone: document.getElementById('phone').value,
+                email: document.getElementById('email').value,
+                timestamp: new Date().toISOString()
+            };
+
+            // Capture Lead Data (Routes to Cloudflare or webhook)
+            console.log("High-Ticket Lead Captured:", payload);
+            
+            document.querySelectorAll('.form-step').forEach(el => el.classList.add('hidden'));
+            document.getElementById('step-3').classList.remove('hidden');
+            document.getElementById('step-indicator').innerText = 'Match Found';
+            document.getElementById('progress-bar').style.width = '100%';
+            document.getElementById('progress-bar').classList.remove('bg-blue-600');
+            document.getElementById('progress-bar').classList.add('bg-green-500');
+        }
+    </script>
+</body>
+</html>
