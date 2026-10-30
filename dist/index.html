@@ -1,133 +1,494 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Denver Legal AI | Premium AI-Powered Regional Client Triage</title>
-    <script src="https://tailwindcss.com"></script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DenverLegalAI | Find a Vetted Attorney in Denver and Across Colorado</title>
+<meta name="description" content="DenverLegalAI matches individuals and businesses with verified Colorado attorneys across 4 practice areas and 8 markets. Free, confidential, and fast.">
+<meta name="theme-color" content="#070a12">
+<link rel="canonical" href="https://denverlegalai.com/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="DenverLegalAI | Find a Vetted Attorney in Denver and Across Colorado">
+<meta property="og:description" content="DenverLegalAI matches individuals and businesses with verified Colorado attorneys across 4 practice areas and 8 markets. Free, confidential, and fast.">
+<meta property="og:url" content="https://denverlegalai.com/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  try { if (typeof tailwind !== "undefined") { tailwind.config = { darkMode: "class", theme: { extend: {
+    colors: { brand: { DEFAULT: "#2563eb", 600: "#2563eb", 500: "#3b82f6", 400: "#60a5fa" }, ink: "#070a12" },
+    fontFamily: { sans: ["Inter", "ui-sans-serif", "system-ui", "sans-serif"] } } } }; } } catch (e) {}
+</script>
+<style>
+:root{
+  --bg:#070a12; --bg-2:#0b1020; --card:#0d1424; --card-2:#111a2e;
+  --line:#1e293b; --line-2:#2a3a55;
+  --text:#ffffff; --muted:#94a3b8; --muted-2:#64748b;
+  --brand:#2563eb; --brand-2:#4f46e5; --brand-3:#60a5fa;
+  --ok:#22c55e; --warn:#f59e0b;
+  --radius:18px;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--muted);
+  font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  line-height:1.6;-webkit-font-smoothing:antialiased;min-height:100vh;overflow-x:hidden;
+  background-image:
+    radial-gradient(900px 500px at 15% -10%,rgba(37,99,235,.22),transparent 60%),
+    radial-gradient(800px 500px at 90% 0%,rgba(79,70,229,.18),transparent 55%),
+    linear-gradient(180deg,#070a12 0%,#070a12 100%);
+  background-repeat:no-repeat}
+a{color:inherit;text-decoration:none}
+h1,h2,h3,h4{color:var(--text);margin:0;letter-spacing:-.02em;line-height:1.1}
+p{margin:0}
+.dl-wrap{max-width:1180px;margin:0 auto;padding:0 24px}
+.dl-grid-bg{position:absolute;inset:0;pointer-events:none;opacity:.5;
+  background-image:linear-gradient(rgba(148,163,184,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(148,163,184,.06) 1px,transparent 1px);
+  background-size:56px 56px;
+  -webkit-mask-image:radial-gradient(ellipse at 50% 0%,#000 30%,transparent 75%);mask-image:radial-gradient(ellipse at 50% 0%,#000 30%,transparent 75%)}
+.dl-glow{position:absolute;border-radius:9999px;filter:blur(90px);pointer-events:none}
+.dl-header{position:sticky;top:0;z-index:50;background:rgba(7,10,18,.72);
+  -webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.dl-header-in{display:flex;align-items:center;justify-content:space-between;height:68px}
+.dl-logo{display:flex;align-items:center;gap:10px;color:#fff;font-weight:800;font-size:18px;letter-spacing:-.02em}
+.dl-logo-mark{width:32px;height:32px;border-radius:10px;display:grid;place-items:center;
+  background:linear-gradient(135deg,#2563eb,#4f46e5);box-shadow:0 0 24px rgba(37,99,235,.55),inset 0 1px 0 rgba(255,255,255,.3)}
+.dl-logo-mark svg{width:18px;height:18px}
+.dl-logo span em{font-style:normal;color:var(--brand-3)}
+.dl-nav{display:flex;align-items:center;gap:28px;font-size:14px;font-weight:500}
+.dl-nav a{color:var(--muted);transition:color .2s}
+.dl-nav a:hover{color:#fff}
+.dl-btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:0;cursor:pointer;
+  font:inherit;font-weight:700;font-size:15px;color:#fff;padding:13px 22px;border-radius:12px;
+  background:linear-gradient(135deg,#2563eb 0%,#4f46e5 100%);
+  box-shadow:0 8px 24px -6px rgba(37,99,235,.65),inset 0 1px 0 rgba(255,255,255,.22);
+  transition:transform .18s ease,box-shadow .18s ease,filter .18s ease}
+.dl-btn:hover{transform:translateY(-1px);filter:brightness(1.08);box-shadow:0 12px 30px -6px rgba(37,99,235,.8),inset 0 1px 0 rgba(255,255,255,.28)}
+.dl-btn:active{transform:translateY(0)}
+.dl-btn-sm{padding:9px 16px;font-size:13px;border-radius:10px}
+.dl-btn-ghost{background:rgba(15,23,42,.7);border:1px solid var(--line-2);box-shadow:none;color:#e2e8f0}
+.dl-btn-ghost:hover{background:rgba(30,41,59,.9);box-shadow:none;filter:none}
+.dl-btn[disabled]{opacity:.45;cursor:not-allowed;transform:none;filter:none}
+.dl-pill{display:inline-flex;align-items:center;gap:8px;padding:7px 14px;border-radius:9999px;font-size:12.5px;font-weight:600;
+  color:#bfdbfe;background:rgba(37,99,235,.12);border:1px solid rgba(96,165,250,.28)}
+.dl-dot{width:7px;height:7px;border-radius:9999px;background:var(--ok);box-shadow:0 0 10px var(--ok)}
+.dl-trust{display:flex;flex-wrap:wrap;gap:12px;justify-content:center}
+.dl-trust-item{display:inline-flex;align-items:center;gap:8px;padding:8px 14px;border-radius:10px;font-size:13px;font-weight:600;
+  color:#cbd5e1;background:rgba(13,20,36,.8);border:1px solid var(--line)}
+.dl-trust-item svg{width:16px;height:16px;color:var(--ok);flex:none}
+.dl-hero{position:relative;padding:76px 0 40px;text-align:center;overflow:hidden}
+.dl-hero h1{font-size:clamp(34px,5.4vw,62px);font-weight:800;margin:22px auto 18px;max-width:880px}
+.dl-grad{background:linear-gradient(90deg,#60a5fa 0%,#818cf8 50%,#a78bfa 100%);-webkit-background-clip:text;background-clip:text;
+  -webkit-text-fill-color:transparent;color:transparent}
+.dl-lead{font-size:clamp(16px,1.9vw,19px);max-width:700px;margin:0 auto 26px;color:var(--muted)}
+.dl-qwrap{position:relative;max-width:680px;margin:34px auto 0;padding:0 4px}
+.dl-qglow{position:absolute;left:50%;top:50%;width:90%;height:90%;transform:translate(-50%,-50%);
+  background:radial-gradient(closest-side,rgba(37,99,235,.45),transparent);filter:blur(60px);z-index:0;pointer-events:none}
+.dl-qcard{position:relative;z-index:1;text-align:left;border-radius:22px;padding:30px;
+  background:linear-gradient(180deg,rgba(17,26,46,.96),rgba(10,15,28,.98));
+  border:1px solid var(--line-2);
+  box-shadow:0 30px 80px -20px rgba(0,0,0,.8),0 0 0 1px rgba(255,255,255,.03) inset,0 1px 0 rgba(255,255,255,.07) inset}
+.dl-qhead{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px}
+.dl-qtag{font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--brand-3)}
+.dl-qcount{font-size:12.5px;color:var(--muted-2);font-weight:600}
+.dl-bar{height:6px;border-radius:9999px;background:#0f172a;border:1px solid var(--line);overflow:hidden;margin-bottom:24px}
+.dl-bar-fill{height:100%;width:33.33%;border-radius:9999px;background:linear-gradient(90deg,#2563eb,#818cf8);
+  box-shadow:0 0 14px rgba(99,102,241,.8);transition:width .35s ease}
+.dl-qtitle{font-size:24px;font-weight:800;margin-bottom:6px}
+.dl-qsub{font-size:14.5px;color:var(--muted);margin-bottom:20px}
+.dl-step{display:none;animation:dlFade .35s ease}
+.dl-step.is-active{display:block}
+@keyframes dlFade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.dl-opts{display:grid;gap:10px}
+.dl-opt{display:flex;align-items:center;gap:14px;width:100%;text-align:left;cursor:pointer;font:inherit;color:#e2e8f0;
+  padding:15px 16px;border-radius:14px;background:rgba(15,23,42,.7);border:1px solid var(--line);
+  transition:border-color .18s,background .18s,transform .18s,box-shadow .18s}
+.dl-opt:hover{border-color:var(--line-2);background:rgba(30,41,59,.7);transform:translateY(-1px)}
+.dl-opt.is-selected{border-color:var(--brand);background:rgba(37,99,235,.14);box-shadow:0 0 0 3px rgba(37,99,235,.22)}
+.dl-radio{width:20px;height:20px;border-radius:9999px;border:2px solid #334155;flex:none;position:relative;transition:all .18s}
+.dl-opt.is-selected .dl-radio{border-color:var(--brand-3);background:var(--brand)}
+.dl-opt.is-selected .dl-radio::after{content:"";position:absolute;inset:4px;border-radius:9999px;background:#fff}
+.dl-opt-t{font-weight:700;font-size:15px;color:#fff;display:block}
+.dl-opt-d{font-size:13px;color:var(--muted);display:block;margin-top:1px}
+.dl-field{margin-bottom:16px}
+.dl-label{display:block;font-size:13px;font-weight:700;color:#cbd5e1;margin-bottom:7px}
+.dl-input,.dl-select,.dl-textarea{width:100%;font:inherit;font-size:15px;color:#fff;padding:13px 14px;border-radius:12px;
+  background:#0a1020;border:1px solid var(--line-2);outline:none;transition:border-color .18s,box-shadow .18s}
+.dl-textarea{min-height:104px;resize:vertical}
+.dl-input::placeholder,.dl-textarea::placeholder{color:#475569}
+.dl-input:focus,.dl-select:focus,.dl-textarea:focus{border-color:var(--brand);box-shadow:0 0 0 3px rgba(37,99,235,.28)}
+.dl-select option{background:#0a1020;color:#fff}
+.dl-row2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.dl-actions{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:22px}
+.dl-err{display:none;margin-top:12px;font-size:13px;font-weight:600;color:#fca5a5}
+.dl-err.is-on{display:block}
+.dl-fine{font-size:12px;color:var(--muted-2);margin-top:14px;line-height:1.5}
+.dl-success{display:none;text-align:center;padding:18px 6px 6px}
+.dl-success.is-on{display:block;animation:dlFade .4s ease}
+.dl-check{width:64px;height:64px;border-radius:9999px;margin:0 auto 16px;display:grid;place-items:center;
+  background:rgba(34,197,94,.14);border:1px solid rgba(34,197,94,.4);box-shadow:0 0 30px rgba(34,197,94,.3)}
+.dl-check svg{width:30px;height:30px;color:var(--ok)}
+.dl-section{position:relative;padding:72px 0}
+.dl-eyebrow{font-size:12.5px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--brand-3);margin-bottom:12px}
+.dl-h2{font-size:clamp(26px,3.6vw,40px);font-weight:800;margin-bottom:14px}
+.dl-sub{max-width:660px;color:var(--muted);font-size:16.5px}
+.dl-center{text-align:center}
+.dl-center .dl-sub{margin-left:auto;margin-right:auto}
+.dl-grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:38px}
+.dl-grid2{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;margin-top:38px}
+.dl-card{position:relative;padding:26px;border-radius:var(--radius);
+  background:linear-gradient(180deg,rgba(17,26,46,.8),rgba(11,16,32,.9));border:1px solid var(--line);
+  box-shadow:0 10px 30px -14px rgba(0,0,0,.7);transition:border-color .2s,transform .2s,box-shadow .2s}
+.dl-card:hover{border-color:var(--line-2);transform:translateY(-3px);box-shadow:0 22px 50px -18px rgba(37,99,235,.35)}
+.dl-card h3{font-size:18px;font-weight:700;margin:14px 0 8px}
+.dl-card p{font-size:14.5px;color:var(--muted)}
+.dl-ico{width:44px;height:44px;border-radius:12px;display:grid;place-items:center;color:#bfdbfe;
+  background:linear-gradient(135deg,rgba(37,99,235,.3),rgba(79,70,229,.22));border:1px solid rgba(96,165,250,.3)}
+.dl-ico svg{width:22px;height:22px}
+.dl-num{font-size:13px;font-weight:800;color:var(--brand-3);letter-spacing:.08em}
+.dl-divider{height:1px;background:linear-gradient(90deg,transparent,var(--line-2),transparent);border:0;margin:0}
+.dl-faq{max-width:820px;margin:38px auto 0;display:grid;gap:12px}
+.dl-faq details{border-radius:14px;background:rgba(13,20,36,.85);border:1px solid var(--line);padding:0 20px}
+.dl-faq summary{cursor:pointer;list-style:none;padding:18px 0;color:#fff;font-weight:700;font-size:16px;display:flex;justify-content:space-between;gap:12px}
+.dl-faq summary::-webkit-details-marker{display:none}
+.dl-faq summary::after{content:"+";color:var(--brand-3);font-size:22px;line-height:1}
+.dl-faq details[open] summary::after{content:"\2212"}
+.dl-faq details p{padding:0 0 18px;color:var(--muted);font-size:15px}
+.dl-chips{display:flex;flex-wrap:wrap;gap:8px}
+.dl-chip{display:inline-flex;align-items:center;gap:6px;padding:7px 13px;border-radius:9999px;font-size:13px;font-weight:600;
+  color:#cbd5e1;background:rgba(15,23,42,.9);border:1px solid var(--line-2);transition:all .18s}
+.dl-chip:hover{color:#fff;border-color:var(--brand);background:rgba(37,99,235,.2);box-shadow:0 0 18px rgba(37,99,235,.35);transform:translateY(-1px)}
+.dl-chip-hot{color:#bfdbfe;border-color:rgba(96,165,250,.4);background:rgba(37,99,235,.14)}
+.dl-crumbs{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;font-size:13px;color:var(--muted-2);font-weight:500}
+.dl-crumbs a:hover{color:#fff}
+.dl-footer{border-top:1px solid var(--line);background:rgba(5,8,15,.7);padding:46px 0 36px;margin-top:30px}
+.dl-foot-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:34px}
+.dl-foot-grid h4{font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:#cbd5e1;margin-bottom:14px}
+.dl-foot-grid a{display:block;font-size:14px;color:var(--muted);padding:4px 0}
+.dl-foot-grid a:hover{color:#fff}
+.dl-disclaimer{margin-top:30px;padding-top:22px;border-top:1px solid var(--line);font-size:12.5px;color:var(--muted-2);line-height:1.65}
+@media (max-width:900px){
+  .dl-grid3{grid-template-columns:1fr}
+  .dl-grid2{grid-template-columns:1fr}
+  .dl-foot-grid{grid-template-columns:1fr}
+  .dl-nav a.dl-hide-sm{display:none}
+}
+@media (max-width:560px){
+  .dl-row2{grid-template-columns:1fr}
+  .dl-qcard{padding:22px 18px}
+  .dl-hero{padding-top:54px}
+}
+.hp-split{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start}
+.hp-sticky{position:sticky;top:96px}
+.hp-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;max-width:900px;margin:44px auto 0;padding:22px;
+  border-radius:18px;background:rgba(13,20,36,.8);border:1px solid #1e293b;box-shadow:0 20px 50px -20px rgba(0,0,0,.8)}
+.hp-hubs{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.hp-matrix{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:38px}
+.hp-cta{position:relative;overflow:hidden;text-align:center;padding:54px 24px;border-radius:24px;
+  background:linear-gradient(135deg,rgba(37,99,235,.28),rgba(79,70,229,.2));border:1px solid rgba(96,165,250,.3)}
+@media (max-width:1000px){.hp-matrix{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:900px){.hp-split{grid-template-columns:1fr;gap:30px}.hp-sticky{position:static}.hp-hubs{grid-template-columns:1fr}
+  .hp-stats{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:620px){.hp-matrix{grid-template-columns:1fr}}
+</style>
 </head>
-<body class="bg-[#070a12] text-slate-100 font-sans antialiased min-h-screen flex flex-col selection:bg-blue-500/30 selection:text-blue-200">
-
-    <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(37,99,235,0.15),transparent_50%)] pointer-events-none"></div>
-
-    <header class="border-b border-slate-900 bg-[#070a12]/80 backdrop-blur-xl sticky top-0 z-50">
-        <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="/" class="text-2xl font-black tracking-tight text-white flex items-center gap-2">
-                <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-blue-600 to-indigo-500 flex items-center justify-center">
-                    <span class="text-base font-black text-white">Δ</span>
-                </div>
-                <span>DenverLegal<span class="text-blue-500">AI</span></span>
-            </a>
-            <div class="flex items-center gap-3">
-                <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
-                <span class="text-xs font-mono uppercase tracking-widest text-slate-400 bg-slate-900 border border-slate-800 px-3 py-1.5 rounded-full">Core Router Online</span>
-            </div>
-        </div>
-    </header>
-
-    <section class="max-w-6xl mx-auto px-6 pt-20 pb-16 text-center relative z-10 flex-grow w-full">
-        <div class="inline-flex items-center gap-2 bg-gradient-to-r from-blue-500/10 to-indigo-500/10 border border-blue-500/20 text-blue-400 px-4 py-2 rounded-full text-xs font-bold tracking-wider uppercase mb-6">
-            ✨ Colorado Legal Intake Virtual Engine
-        </div>
-        <h1 class="text-5xl md:text-6xl font-extrabold tracking-tight text-white max-w-4xl mx-auto leading-[1.1] mb-6">
-            Connecting High-Value Cases with Denver’s <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-indigo-400 to-purple-400">Elite Law Firms</span>
-        </h1>
-        <p class="text-lg md:text-xl text-slate-400 max-w-2xl mx-auto mb-14 leading-relaxed">
-            Bypass outdated directories. Our triage framework matches case details with verified legal networks across Colorado instantly.
-        </p>
-
-        <div class="max-w-4xl mx-auto text-left">
-            <h2 class="text-xs font-bold uppercase tracking-widest text-slate-400 mb-6 flex items-center gap-2">
-                <span class="w-1.5 h-1.5 bg-blue-500 rounded-full"></span>
-                Available Regional Routing Nodes By Specialization
-            </h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                
-    <div class="bg-gradient-to-b from-slate-900 to-slate-950 border border-slate-800/80 p-6 rounded-2xl shadow-xl relative overflow-hidden">
-        <div class="absolute top-0 left-0 w-1 h-full bg-gradient-to-b from-blue-500 to-indigo-500 opacity-60"></div>
-        <div class="flex items-center justify-between mb-4">
-            <h3 class="font-extrabold text-white text-lg tracking-tight">Personal Injury</h3>
-            <span class="text-[10px] uppercase font-mono tracking-widest bg-blue-500/10 border border-blue-500/30 text-blue-400 px-2 py-0.5 rounded">Active Node</span>
-        </div>
-        <p class="text-xs text-slate-500 mb-4">Select a region to initiate automated client intake routing:</p>
-        <div class="flex flex-wrap gap-2">
-            <a class="text-xs bg-slate-950/60 hover:bg-blue-600 hover:text-white border border-slate-800 hover:border-blue-500 text-slate-300 px-3 py-1.5 rounded-lg transition duration-150 font-medium" href="/personal-injury/denver/">Denver</a>
-<a class="text-xs bg-slate-950/60 hover:bg-blue-600 hover:text-white border border-slate-800 hover:border-blue-500 text-slate-300 px-3 py-1.5 rounded-lg transition duration-150 font-medium" href="/personal-injury/aurora/">Aurora</a>
-<a class="text-xs bg-slate-950/60 hover:bg-blue-600 hover:text-white border border-slate-800 hover:border-blue-500 text-slate-300 px-3 py-1.5 rounded-lg transition duration-150 font-medium" href="/personal-injury/lakewood/">Lakewood</a>
-<a class="text-xs bg-slate-950/60 hover:bg-blue-600 hover:text-white border border-slate-800 hover:border-blue-500 text-slate-300 px-3 py-1.5 rounded-lg transition duration-150 font-medium" href="/personal-injury/centennial/">Centennial</a>
-<a class="text-xs bg-slate-950/60 hover:bg-blue-600 hover:text-white border border-slate-800 hover:border-blue-500 text-slate-300 px-3 py-1.5 rounded-lg transition duration-150 font-medium" href="/personal-injury/boulder/">Boulder</a>
-<a class="text-xs bg-slate-950/60 hover:bg-blue-600 hover:text-white border border-slate-800 hover:border-blue-500 text-slate-300 px-3 py-1.5 rounded-lg transition duration-150 font-medium" href="/personal-injury/littleton/">Littleton</a>
-<a class="text-xs bg-slate-950/60 hover:bg-blue-600 hover:text-white border border-slate-800 hover:border-blue-500 text-slate-300 px-3 py-1.5 rounded-lg transition duration-150 font-medium" href="/personal-injury/arvada/">Arvada</a>
-<a class="text-xs bg-slate-950/60 hover:bg-blue-600 hover:text-white border border-slate-800 hover:border-blue-500 text-slate-300 px-3 py-1.5 rounded-lg transition duration-150 font-medium" href="/personal-injury/westminster/">Westminster</a>
-        </div>
+<body>
+<header class="dl-header">
+  <div class="dl-wrap dl-header-in">
+    <a href="/" class="dl-logo"><div class="dl-logo-mark"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18M5 7h14M5 7l-3 7a3.5 3.5 0 006 0L5 7zM19 7l-3 7a3.5 3.5 0 006 0l-3-7z"/></svg></div><span>Denver<em>Legal</em>AI</span></a>
+    <nav class="dl-nav">
+      <a href="#hubs" class="dl-hide-sm">Practice Areas</a>
+      <a href="#verified" class="dl-hide-sm">Verification</a>
+      <a href="#coverage" class="dl-hide-sm">Coverage</a>
+      <a href="/denver/personal-injury/" class="dl-btn dl-btn-sm">Get Matched</a>
+    </nav>
+  </div>
+</header>
+<main>
+<section class="dl-hero" style="padding-bottom:60px">
+  <div class="dl-grid-bg"></div>
+  <div class="dl-glow" style="width:520px;height:520px;left:-160px;top:-60px;background:rgba(37,99,235,.3)"></div>
+  <div class="dl-glow" style="width:460px;height:460px;right:-140px;top:60px;background:rgba(79,70,229,.26)"></div>
+  <div class="dl-wrap" style="position:relative">
+    <span class="dl-pill"><span class="dl-dot"></span>Now matching clients across Colorado</span>
+    <h1>The smarter way to find the <span class="dl-grad">right attorney</span></h1>
+    <p class="dl-lead">DenverLegalAI pairs you with verified local counsel in minutes. Answer three quick questions and get a confidential, no-obligation match.</p>
+    <div style="display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-bottom:26px">
+      <a href="#hubs" class="dl-btn">Explore practice areas &rarr;</a>
+      <a href="#coverage" class="dl-btn dl-btn-ghost">Browse the coverage map</a>
     </div>
-
-    <div class="bg-gradient-to-b from-slate-900 to-slate-950 border border-slate-800/80 p-6 rounded-2xl shadow-xl relative overflow-hidden">
-        <div class="absolute top-0 left-0 w-1 h-full bg-gradient-to-b from-blue-500 to-indigo-500 opacity-60"></div>
-        <div class="flex items-center justify-between mb-4">
-            <h3 class="font-extrabold text-white text-lg tracking-tight">Family Law & Divorce</h3>
-            <span class="text-[10px] uppercase font-mono tracking-widest bg-blue-500/10 border border-blue-500/30 text-blue-400 px-2 py-0.5 rounded">Active Node</span>
-        </div>
-        <p class="text-xs text-slate-500 mb-4">Select a region to initiate automated client intake routing:</p>
-        <div class="flex flex-wrap gap-2">
-            <a class="text-xs bg-slate-950/60 hover:bg-blue-600 hover:text-white border border-slate-800 hover:border-blue-500 text-slate-300 px-3 py-1.5 rounded-lg transition duration-150 font-medium" href="/family-law/denver/">Denver</a>
-<a class="text-xs bg-slate-950/60 hover:bg-blue-600 hover:text-white border border-slate-800 hover:border-blue-500 text-slate-300 px-3 py-1.5 rounded-lg transition duration-150 font-medium" href="/family-law/aurora/">Aurora</a>
-<a class="text-xs bg-slate-950/60 hover:bg-blue-600 hover:text-white border border-slate-800 hover:border-blue-500 text-slate-300 px-3 py-1.5 rounded-lg transition duration-150 font-medium" href="/family-law/lakewood/">Lakewood</a>
-<a class="text-xs bg-slate-950/60 hover:bg-blue-600 hover:text-white border border-slate-800 hover:border-blue-500 text-slate-300 px-3 py-1.5 rounded-lg transition duration-150 font-medium" href="/family-law/centennial/">Centennial</a>
-<a class="text-xs bg-slate-950/60 hover:bg-blue-600 hover:text-white border border-slate-800 hover:border-blue-500 text-slate-300 px-3 py-1.5 rounded-lg transition duration-150 font-medium" href="/family-law/boulder/">Boulder</a>
-<a class="text-xs bg-slate-950/60 hover:bg-blue-600 hover:text-white border border-slate-800 hover:border-blue-500 text-slate-300 px-3 py-1.5 rounded-lg transition duration-150 font-medium" href="/family-law/littleton/">Littleton</a>
-<a class="text-xs bg-slate-950/60 hover:bg-blue-600 hover:text-white border border-slate-800 hover:border-blue-500 text-slate-300 px-3 py-1.5 rounded-lg transition duration-150 font-medium" href="/family-law/arvada/">Arvada</a>
-<a class="text-xs bg-slate-950/60 hover:bg-blue-600 hover:text-white border border-slate-800 hover:border-blue-500 text-slate-300 px-3 py-1.5 rounded-lg transition duration-150 font-medium" href="/family-law/westminster/">Westminster</a>
-        </div>
+    <div class="dl-trust">
+      <span class="dl-trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg>Bar-verified attorneys</span>
+      <span class="dl-trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg>Free to request</span>
+      <span class="dl-trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg>Confidential matching</span>
     </div>
-
-    <div class="bg-gradient-to-b from-slate-900 to-slate-950 border border-slate-800/80 p-6 rounded-2xl shadow-xl relative overflow-hidden">
-        <div class="absolute top-0 left-0 w-1 h-full bg-gradient-to-b from-blue-500 to-indigo-500 opacity-60"></div>
-        <div class="flex items-center justify-between mb-4">
-            <h3 class="font-extrabold text-white text-lg tracking-tight">Criminal Defense</h3>
-            <span class="text-[10px] uppercase font-mono tracking-widest bg-blue-500/10 border border-blue-500/30 text-blue-400 px-2 py-0.5 rounded">Active Node</span>
-        </div>
-        <p class="text-xs text-slate-500 mb-4">Select a region to initiate automated client intake routing:</p>
-        <div class="flex flex-wrap gap-2">
-            <a class="text-xs bg-slate-950/60 hover:bg-blue-600 hover:text-white border border-slate-800 hover:border-blue-500 text-slate-300 px-3 py-1.5 rounded-lg transition duration-150 font-medium" href="/criminal-defense/denver/">Denver</a>
-<a class="text-xs bg-slate-950/60 hover:bg-blue-600 hover:text-white border border-slate-800 hover:border-blue-500 text-slate-300 px-3 py-1.5 rounded-lg transition duration-150 font-medium" href="/criminal-defense/aurora/">Aurora</a>
-<a class="text-xs bg-slate-950/60 hover:bg-blue-600 hover:text-white border border-slate-800 hover:border-blue-500 text-slate-300 px-3 py-1.5 rounded-lg transition duration-150 font-medium" href="/criminal-defense/lakewood/">Lakewood</a>
-<a class="text-xs bg-slate-950/60 hover:bg-blue-600 hover:text-white border border-slate-800 hover:border-blue-500 text-slate-300 px-3 py-1.5 rounded-lg transition duration-150 font-medium" href="/criminal-defense/centennial/">Centennial</a>
-<a class="text-xs bg-slate-950/60 hover:bg-blue-600 hover:text-white border border-slate-800 hover:border-blue-500 text-slate-300 px-3 py-1.5 rounded-lg transition duration-150 font-medium" href="/criminal-defense/boulder/">Boulder</a>
-<a class="text-xs bg-slate-950/60 hover:bg-blue-600 hover:text-white border border-slate-800 hover:border-blue-500 text-slate-300 px-3 py-1.5 rounded-lg transition duration-150 font-medium" href="/criminal-defense/littleton/">Littleton</a>
-<a class="text-xs bg-slate-950/60 hover:bg-blue-600 hover:text-white border border-slate-800 hover:border-blue-500 text-slate-300 px-3 py-1.5 rounded-lg transition duration-150 font-medium" href="/criminal-defense/arvada/">Arvada</a>
-<a class="text-xs bg-slate-950/60 hover:bg-blue-600 hover:text-white border border-slate-800 hover:border-blue-500 text-slate-300 px-3 py-1.5 rounded-lg transition duration-150 font-medium" href="/criminal-defense/westminster/">Westminster</a>
-        </div>
+    <div class="hp-stats">
+<div style="text-align:center;padding:6px 10px">
+  <div style="font-size:clamp(24px,3vw,34px);font-weight:800;color:#fff;letter-spacing:-.02em">32</div>
+  <div style="font-size:13px;color:#94a3b8;margin-top:2px">Local match pages</div>
+</div>
+<div style="text-align:center;padding:6px 10px">
+  <div style="font-size:clamp(24px,3vw,34px);font-weight:800;color:#fff;letter-spacing:-.02em">8</div>
+  <div style="font-size:13px;color:#94a3b8;margin-top:2px">Markets covered</div>
+</div>
+<div style="text-align:center;padding:6px 10px">
+  <div style="font-size:clamp(24px,3vw,34px);font-weight:800;color:#fff;letter-spacing:-.02em">4</div>
+  <div style="font-size:13px;color:#94a3b8;margin-top:2px">Practice hubs</div>
+</div>
+<div style="text-align:center;padding:6px 10px">
+  <div style="font-size:clamp(24px,3vw,34px);font-weight:800;color:#fff;letter-spacing:-.02em">Under 15 min</div>
+  <div style="font-size:13px;color:#94a3b8;margin-top:2px">Typical match time</div>
+</div>
     </div>
-
-    <div class="bg-gradient-to-b from-slate-900 to-slate-950 border border-slate-800/80 p-6 rounded-2xl shadow-xl relative overflow-hidden">
-        <div class="absolute top-0 left-0 w-1 h-full bg-gradient-to-b from-blue-500 to-indigo-500 opacity-60"></div>
-        <div class="flex items-center justify-between mb-4">
-            <h3 class="font-extrabold text-white text-lg tracking-tight">Business & Corporate Law</h3>
-            <span class="text-[10px] uppercase font-mono tracking-widest bg-blue-500/10 border border-blue-500/30 text-blue-400 px-2 py-0.5 rounded">Active Node</span>
-        </div>
-        <p class="text-xs text-slate-500 mb-4">Select a region to initiate automated client intake routing:</p>
-        <div class="flex flex-wrap gap-2">
-            <a class="text-xs bg-slate-950/60 hover:bg-blue-600 hover:text-white border border-slate-800 hover:border-blue-500 text-slate-300 px-3 py-1.5 rounded-lg transition duration-150 font-medium" href="/business-law/denver/">Denver</a>
-<a class="text-xs bg-slate-950/60 hover:bg-blue-600 hover:text-white border border-slate-800 hover:border-blue-500 text-slate-300 px-3 py-1.5 rounded-lg transition duration-150 font-medium" href="/business-law/aurora/">Aurora</a>
-<a class="text-xs bg-slate-950/60 hover:bg-blue-600 hover:text-white border border-slate-800 hover:border-blue-500 text-slate-300 px-3 py-1.5 rounded-lg transition duration-150 font-medium" href="/business-law/lakewood/">Lakewood</a>
-<a class="text-xs bg-slate-950/60 hover:bg-blue-600 hover:text-white border border-slate-800 hover:border-blue-500 text-slate-300 px-3 py-1.5 rounded-lg transition duration-150 font-medium" href="/business-law/centennial/">Centennial</a>
-<a class="text-xs bg-slate-950/60 hover:bg-blue-600 hover:text-white border border-slate-800 hover:border-blue-500 text-slate-300 px-3 py-1.5 rounded-lg transition duration-150 font-medium" href="/business-law/boulder/">Boulder</a>
-<a class="text-xs bg-slate-950/60 hover:bg-blue-600 hover:text-white border border-slate-800 hover:border-blue-500 text-slate-300 px-3 py-1.5 rounded-lg transition duration-150 font-medium" href="/business-law/littleton/">Littleton</a>
-<a class="text-xs bg-slate-950/60 hover:bg-blue-600 hover:text-white border border-slate-800 hover:border-blue-500 text-slate-300 px-3 py-1.5 rounded-lg transition duration-150 font-medium" href="/business-law/arvada/">Arvada</a>
-<a class="text-xs bg-slate-950/60 hover:bg-blue-600 hover:text-white border border-slate-800 hover:border-blue-500 text-slate-300 px-3 py-1.5 rounded-lg transition duration-150 font-medium" href="/business-law/westminster/">Westminster</a>
-        </div>
+  </div>
+</section>
+<hr class="dl-divider">
+<section class="dl-section" id="hubs">
+  <div class="dl-wrap">
+    <div class="hp-split">
+      <div class="hp-sticky">
+        <div class="dl-eyebrow">Active legal hubs</div>
+        <h2 class="dl-h2">Specialists for the matters that matter most</h2>
+        <p class="dl-sub">Each hub is staffed by licensed attorneys who focus on that field. Pick an area to start your match, or browse every market below.</p>
+        <div style="margin-top:26px"><a href="#coverage" class="dl-btn">See local coverage</a></div>
+      </div>
+      <div class="hp-hubs">
+<a href="/denver/personal-injury/" class="dl-card" style="display:block">
+  <div style="display:flex;align-items:center;justify-content:space-between">
+    <div class="dl-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18M5 7h14M5 7l-3 7a3.5 3.5 0 006 0L5 7zM19 7l-3 7a3.5 3.5 0 006 0l-3-7z"/></svg></div>
+    <span class="dl-pill" style="padding:4px 10px;font-size:11.5px"><span class="dl-dot"></span>Active</span>
+  </div>
+  <h3>Personal Injury</h3>
+  <p>Vetted personal injury attorneys, matched to your case across 8 Colorado markets.</p>
+  <div style="margin-top:16px;font-size:13.5px;font-weight:700;color:#93c5fd">Find an attorney &rarr;</div>
+</a>
+<a href="/aurora/family-law/" class="dl-card" style="display:block">
+  <div style="display:flex;align-items:center;justify-content:space-between">
+    <div class="dl-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18M5 7h14M5 7l-3 7a3.5 3.5 0 006 0L5 7zM19 7l-3 7a3.5 3.5 0 006 0l-3-7z"/></svg></div>
+    <span class="dl-pill" style="padding:4px 10px;font-size:11.5px"><span class="dl-dot"></span>Active</span>
+  </div>
+  <h3>Family Law &amp; Divorce</h3>
+  <p>Vetted family law &amp; divorce attorneys, matched to your case across 8 Colorado markets.</p>
+  <div style="margin-top:16px;font-size:13.5px;font-weight:700;color:#93c5fd">Find an attorney &rarr;</div>
+</a>
+<a href="/lakewood/criminal-defense/" class="dl-card" style="display:block">
+  <div style="display:flex;align-items:center;justify-content:space-between">
+    <div class="dl-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18M5 7h14M5 7l-3 7a3.5 3.5 0 006 0L5 7zM19 7l-3 7a3.5 3.5 0 006 0l-3-7z"/></svg></div>
+    <span class="dl-pill" style="padding:4px 10px;font-size:11.5px"><span class="dl-dot"></span>Active</span>
+  </div>
+  <h3>Criminal Defense</h3>
+  <p>Vetted criminal defense attorneys, matched to your case across 8 Colorado markets.</p>
+  <div style="margin-top:16px;font-size:13.5px;font-weight:700;color:#93c5fd">Find an attorney &rarr;</div>
+</a>
+<a href="/centennial/business-law/" class="dl-card" style="display:block">
+  <div style="display:flex;align-items:center;justify-content:space-between">
+    <div class="dl-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18M5 7h14M5 7l-3 7a3.5 3.5 0 006 0L5 7zM19 7l-3 7a3.5 3.5 0 006 0l-3-7z"/></svg></div>
+    <span class="dl-pill" style="padding:4px 10px;font-size:11.5px"><span class="dl-dot"></span>Active</span>
+  </div>
+  <h3>Business &amp; Corporate Law</h3>
+  <p>Vetted business &amp; corporate law attorneys, matched to your case across 8 Colorado markets.</p>
+  <div style="margin-top:16px;font-size:13.5px;font-weight:700;color:#93c5fd">Find an attorney &rarr;</div>
+</a>
+      </div>
     </div>
-            </div>
-        </div>
-    </section>
+  </div>
+</section>
+<section class="dl-section" id="verified" style="padding-top:10px">
+  <div class="dl-wrap">
+    <div class="dl-center">
+      <div class="dl-eyebrow">Verification</div>
+      <h2 class="dl-h2">Every attorney is vetted before you ever see a name</h2>
+      <p class="dl-sub">Trust is the product. Our screening process keeps the network small, credentialed, and accountable.</p>
+    </div>
+    <div class="dl-grid2">
+<div class="dl-card" style="padding:22px">
+  <div style="display:flex;gap:14px;align-items:flex-start">
+    <div class="dl-ico" style="flex:none"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 3v6c0 4.5-3.2 7.8-8 9-4.8-1.2-8-4.5-8-9V6l8-3z"/><path d="M9 12l2 2 4-4"/></svg></div>
+    <div><h3 style="margin:0 0 6px">Bar license verified</h3><p>Every attorney is checked against the Colorado bar roster before approval.</p></div>
+  </div>
+</div>
+<div class="dl-card" style="padding:22px">
+  <div style="display:flex;gap:14px;align-items:flex-start">
+    <div class="dl-ico" style="flex:none"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 3v6c0 4.5-3.2 7.8-8 9-4.8-1.2-8-4.5-8-9V6l8-3z"/><path d="M9 12l2 2 4-4"/></svg></div>
+    <div><h3 style="margin:0 0 6px">Disciplinary screening</h3><p>We review public disciplinary history and decline any flagged profiles.</p></div>
+  </div>
+</div>
+<div class="dl-card" style="padding:22px">
+  <div style="display:flex;gap:14px;align-items:flex-start">
+    <div class="dl-ico" style="flex:none"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 3v6c0 4.5-3.2 7.8-8 9-4.8-1.2-8-4.5-8-9V6l8-3z"/><path d="M9 12l2 2 4-4"/></svg></div>
+    <div><h3 style="margin:0 0 6px">Client-first reviews</h3><p>Ongoing feedback keeps match quality high and weak fits out of the network.</p></div>
+  </div>
+</div>
+<div class="dl-card" style="padding:22px">
+  <div style="display:flex;gap:14px;align-items:flex-start">
+    <div class="dl-ico" style="flex:none"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 3v6c0 4.5-3.2 7.8-8 9-4.8-1.2-8-4.5-8-9V6l8-3z"/><path d="M9 12l2 2 4-4"/></svg></div>
+    <div><h3 style="margin:0 0 6px">Private by default</h3><p>Your answers are shared only with your matched attorney, never listed publicly.</p></div>
+  </div>
+</div>
+    </div>
+  </div>
+</section>
+<section class="dl-section" id="coverage" style="padding-top:10px">
+  <div class="dl-wrap">
+    <div class="dl-center">
+      <div class="dl-eyebrow">Coverage map</div>
+      <h2 class="dl-h2">Local matching, market by market</h2>
+      <p class="dl-sub">Select any practice area or neighborhood tag to jump straight to that local match page.</p>
+    </div>
+    <div class="hp-matrix">
+<div class="dl-card" style="padding:24px">
+  <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px">
+    <span class="dl-dot"></span>
+    <h3 style="margin:0;font-size:19px">Denver</h3>
+  </div>
+  <div style="font-size:11.5px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#64748b;margin-bottom:8px">Practice areas</div>
+  <div class="dl-chips">
+<a class="dl-chip dl-chip-hot" href="/denver/personal-injury/">Personal Injury</a>
+<a class="dl-chip dl-chip-hot" href="/denver/family-law/">Family Law &amp; Divorce</a>
+<a class="dl-chip dl-chip-hot" href="/denver/criminal-defense/">Criminal Defense</a>
+<a class="dl-chip dl-chip-hot" href="/denver/business-law/">Business &amp; Corporate Law</a>
+  </div>
 
-    <footer class="border-t border-slate-950 bg-slate-950/90 py-10 text-xs text-slate-500 relative z-10 mt-auto">
-        <div class="max-w-6xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-4">
-            <p>&copy; 2026 DenverLegalAI.com. All rights reserved.</p>
-            <p class="text-center md:text-right max-w-md leading-relaxed text-slate-600">Disclaimer: DenverLegalAI is an automated client triage system mapping cases to licensed Colorado bar members.</p>
-        </div>
-    </footer>
+</div>
+<div class="dl-card" style="padding:24px">
+  <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px">
+    <span class="dl-dot"></span>
+    <h3 style="margin:0;font-size:19px">Aurora</h3>
+  </div>
+  <div style="font-size:11.5px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#64748b;margin-bottom:8px">Practice areas</div>
+  <div class="dl-chips">
+<a class="dl-chip dl-chip-hot" href="/aurora/personal-injury/">Personal Injury</a>
+<a class="dl-chip dl-chip-hot" href="/aurora/family-law/">Family Law &amp; Divorce</a>
+<a class="dl-chip dl-chip-hot" href="/aurora/criminal-defense/">Criminal Defense</a>
+<a class="dl-chip dl-chip-hot" href="/aurora/business-law/">Business &amp; Corporate Law</a>
+  </div>
 
+</div>
+<div class="dl-card" style="padding:24px">
+  <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px">
+    <span class="dl-dot"></span>
+    <h3 style="margin:0;font-size:19px">Lakewood</h3>
+  </div>
+  <div style="font-size:11.5px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#64748b;margin-bottom:8px">Practice areas</div>
+  <div class="dl-chips">
+<a class="dl-chip dl-chip-hot" href="/lakewood/personal-injury/">Personal Injury</a>
+<a class="dl-chip dl-chip-hot" href="/lakewood/family-law/">Family Law &amp; Divorce</a>
+<a class="dl-chip dl-chip-hot" href="/lakewood/criminal-defense/">Criminal Defense</a>
+<a class="dl-chip dl-chip-hot" href="/lakewood/business-law/">Business &amp; Corporate Law</a>
+  </div>
+
+</div>
+<div class="dl-card" style="padding:24px">
+  <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px">
+    <span class="dl-dot"></span>
+    <h3 style="margin:0;font-size:19px">Centennial</h3>
+  </div>
+  <div style="font-size:11.5px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#64748b;margin-bottom:8px">Practice areas</div>
+  <div class="dl-chips">
+<a class="dl-chip dl-chip-hot" href="/centennial/personal-injury/">Personal Injury</a>
+<a class="dl-chip dl-chip-hot" href="/centennial/family-law/">Family Law &amp; Divorce</a>
+<a class="dl-chip dl-chip-hot" href="/centennial/criminal-defense/">Criminal Defense</a>
+<a class="dl-chip dl-chip-hot" href="/centennial/business-law/">Business &amp; Corporate Law</a>
+  </div>
+
+</div>
+<div class="dl-card" style="padding:24px">
+  <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px">
+    <span class="dl-dot"></span>
+    <h3 style="margin:0;font-size:19px">Boulder</h3>
+  </div>
+  <div style="font-size:11.5px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#64748b;margin-bottom:8px">Practice areas</div>
+  <div class="dl-chips">
+<a class="dl-chip dl-chip-hot" href="/boulder/personal-injury/">Personal Injury</a>
+<a class="dl-chip dl-chip-hot" href="/boulder/family-law/">Family Law &amp; Divorce</a>
+<a class="dl-chip dl-chip-hot" href="/boulder/criminal-defense/">Criminal Defense</a>
+<a class="dl-chip dl-chip-hot" href="/boulder/business-law/">Business &amp; Corporate Law</a>
+  </div>
+
+</div>
+<div class="dl-card" style="padding:24px">
+  <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px">
+    <span class="dl-dot"></span>
+    <h3 style="margin:0;font-size:19px">Littleton</h3>
+  </div>
+  <div style="font-size:11.5px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#64748b;margin-bottom:8px">Practice areas</div>
+  <div class="dl-chips">
+<a class="dl-chip dl-chip-hot" href="/littleton/personal-injury/">Personal Injury</a>
+<a class="dl-chip dl-chip-hot" href="/littleton/family-law/">Family Law &amp; Divorce</a>
+<a class="dl-chip dl-chip-hot" href="/littleton/criminal-defense/">Criminal Defense</a>
+<a class="dl-chip dl-chip-hot" href="/littleton/business-law/">Business &amp; Corporate Law</a>
+  </div>
+
+</div>
+<div class="dl-card" style="padding:24px">
+  <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px">
+    <span class="dl-dot"></span>
+    <h3 style="margin:0;font-size:19px">Arvada</h3>
+  </div>
+  <div style="font-size:11.5px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#64748b;margin-bottom:8px">Practice areas</div>
+  <div class="dl-chips">
+<a class="dl-chip dl-chip-hot" href="/arvada/personal-injury/">Personal Injury</a>
+<a class="dl-chip dl-chip-hot" href="/arvada/family-law/">Family Law &amp; Divorce</a>
+<a class="dl-chip dl-chip-hot" href="/arvada/criminal-defense/">Criminal Defense</a>
+<a class="dl-chip dl-chip-hot" href="/arvada/business-law/">Business &amp; Corporate Law</a>
+  </div>
+
+</div>
+<div class="dl-card" style="padding:24px">
+  <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px">
+    <span class="dl-dot"></span>
+    <h3 style="margin:0;font-size:19px">Westminster</h3>
+  </div>
+  <div style="font-size:11.5px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#64748b;margin-bottom:8px">Practice areas</div>
+  <div class="dl-chips">
+<a class="dl-chip dl-chip-hot" href="/westminster/personal-injury/">Personal Injury</a>
+<a class="dl-chip dl-chip-hot" href="/westminster/family-law/">Family Law &amp; Divorce</a>
+<a class="dl-chip dl-chip-hot" href="/westminster/criminal-defense/">Criminal Defense</a>
+<a class="dl-chip dl-chip-hot" href="/westminster/business-law/">Business &amp; Corporate Law</a>
+  </div>
+
+</div>
+    </div>
+  </div>
+</section>
+<section class="dl-section" style="padding-top:10px">
+  <div class="dl-wrap">
+    <div class="hp-cta">
+      <div class="dl-glow" style="width:360px;height:360px;left:50%;top:-180px;transform:translateX(-50%);background:rgba(96,165,250,.35)"></div>
+      <div style="position:relative">
+        <h2 class="dl-h2" style="margin-bottom:12px">Ready to speak with the right attorney?</h2>
+        <p class="dl-sub" style="margin:0 auto 26px">It takes less than two minutes and costs nothing to find out who fits your case.</p>
+        <a href="/denver/personal-injury/" class="dl-btn">Start my free match &rarr;</a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+<footer class="dl-footer">
+  <div class="dl-wrap">
+    <div class="dl-foot-grid">
+      <div><a href="/" class="dl-logo" style="padding:0"><div class="dl-logo-mark"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18M5 7h14M5 7l-3 7a3.5 3.5 0 006 0L5 7zM19 7l-3 7a3.5 3.5 0 006 0l-3-7z"/></svg></div><span>Denver<em>Legal</em>AI</span></a>
+        <p style="margin-top:14px;font-size:14px;max-width:340px">Intelligent attorney matching for individuals and businesses across Colorado.</p></div>
+      <div><h4>Markets</h4>
+<a href="/denver/personal-injury/">Denver</a>
+<a href="/aurora/personal-injury/">Aurora</a>
+<a href="/lakewood/personal-injury/">Lakewood</a>
+<a href="/centennial/personal-injury/">Centennial</a>
+<a href="/boulder/personal-injury/">Boulder</a>
+<a href="/littleton/personal-injury/">Littleton</a>
+<a href="/arvada/personal-injury/">Arvada</a>
+<a href="/westminster/personal-injury/">Westminster</a>
+      </div>
+      <div><h4>Practice areas</h4>
+<a href="/denver/personal-injury/">Personal Injury</a>
+<a href="/denver/family-law/">Family Law &amp; Divorce</a>
+<a href="/denver/criminal-defense/">Criminal Defense</a>
+<a href="/denver/business-law/">Business &amp; Corporate Law</a>
+      </div>
+    </div>
+    <p class="dl-disclaimer">denverlegalai.com is an attorney matching service and is not a law firm. Information on this site is for general purposes only and is not legal advice. Submitting a request does not create an attorney-client relationship. Attorney advertising may apply.</p>
+  </div>
+</footer>
 </body>
 </html>
